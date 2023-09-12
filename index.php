@@ -1,3 +1,7 @@
+<?php
+session_start();
+require 'database/database.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,9 +30,62 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <!-- dropdown css -->
+
+    <style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+/* Add custom CSS to make the navbar sticky */
+#myNavbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #fff; /* Adjust background color as needed */
+}
+.dropdown-menu{
+    display:grid;
+}
+
+/* Add a shadow effect when scrolling */
+#myNavbar.sticky {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adjust shadow as needed */
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 10px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+@media(max-width:992px){
+    .dropdown-content{
+        /* display:block; */
+        min-width: 150px;
+        padding:12px 5px;
+    }
+    
+}
+@media(max-width:991px){
+    .dropdown{
+        display:block;
+    }
+
+}
+</style>
 </head>
 
 <body>
@@ -42,7 +99,7 @@
 
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow   p-0" id="myNavbar">
         <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-danger"><i class="fa fa-book me-3"></i>CODEMaster_LMS</h2>
         </a>
@@ -50,7 +107,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <div class="navbar-nav mx-auto p-4 p-lg-0 align-items-center">
                 <a href="index.php" class="nav-item nav-link ">Home</a>
                 <a href="about.php" class="nav-item nav-link">About</a>
                 <a href="courses.php" class="nav-item nav-link">Courses</a>
@@ -62,9 +119,38 @@
                     </div>
                 </div>
                 <a href="contact.php" class="nav-item nav-link">Contact</a>
+    
             </div>
+            <?php   
+            if(isset($_SESSION['email'])){
+                echo '
+                <div class="dropdown">
+                <span>            
+                <a href="#" class="btn btn-success py-3 px-lg-5 d-grid d-lg-block"><i class="fs-5">Menu</i></a>
+                </span>
+                <div class="dropdown-content">
+                <p><a href="#"> <i class="fa-solid fa-book-open mx-2"></i> My Learning</a></p>
+                <p><a href=""><i class="fa-solid fa-cart-shopping mx-2"></i>My Cart</a></p>
+                <hr>
+                <p><a href=""><i class="fa-solid fa-bell mx-2"></i>Notifications</a></p>
+                <p><a href=""><i class="fa-solid fa-comment mx-2"></i>Messages</a></p>
+                <hr>
+                <p><a href="" style="font-size:13px"><i class="fa-solid fa-gear mx-2" ></i>Account Settings</a></p>
+                <p><a href=""><i class="fa-solid fa-user mx-2"></i>Edit Profile</a></p>
+                <hr>
+                <p><a href="logout.php" style="color:red"><i class="fa-solid fa-right-from-bracket mx-2"></i>Log Out</a></p>
+                </div>
+                </div>
+            ';
+            }else{
+                echo'
             <a href="register.php" class="btn btn-danger py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
-        </div>
+            ';
+            }
+       ?>
+        
+       
+            </div>
     </nav>
     <!-- Navbar End -->
 
@@ -578,7 +664,6 @@ It is my belief that our nation could experience greater advancement if individu
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>

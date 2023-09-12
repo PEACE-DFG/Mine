@@ -131,7 +131,7 @@
         display: block;
         margin-top: 0;
         opacity: 0;
-        visibility: hidden;
+        /* visibility: hidden; */
         transition: .5s;
     }
 
@@ -149,6 +149,7 @@
         opacity: 1;
     }
 }
+
 
 
 /*** Header carousel ***/
