@@ -168,8 +168,20 @@ require 'database/database.php';
                                 <h1 class="display-3 text-white animated slideInDown">The Best Online Learning Platform</h1>
                                 <p class="fs-5 text-white mb-4 pb-2">Learn all you need with us at CODEMaster Academy,Get Certified</p>
                                 <a href="" class="btn btn-danger py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                                <a href="register.php" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
-                            </div>
+                                <?php   
+            if(isset($_SESSION['email'])){
+                echo'
+                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Start Learning</a>
+
+                ';
+                        }else{
+                            echo'
+                            <a href="register.php" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+
+                        ';
+                        }
+                   ?>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -184,7 +196,19 @@ require 'database/database.php';
                                 <h1 class="display-3 text-white animated slideInDown">Get Educated Online From Your Home</h1>
                                 <p class="fs-5 text-white mb-4 pb-2">Learn all you need with us at CODEMaster Academy,Get Certified</p>
                                 <a href="" class="btn btn-danger py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                                <a href="register.php" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                                <?php   
+            if(isset($_SESSION['email'])){
+                echo'
+                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Start Learning</a>
+
+                ';
+                        }else{
+                            echo'
+                            <a href="register.php" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+
+                        ';
+                        }
+                   ?>
                             </div>
                         </div>
                     </div>
