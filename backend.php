@@ -7,8 +7,7 @@ require 'database/database.php';
 
 <head>
     <meta charset="utf-8">
-    <title>eLEARNING_CODEMaster_Contact</title>
-
+    <title>eLEARNING_CODEMaster</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -31,10 +30,10 @@ require 'database/database.php';
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-
     <!-- dropdown css -->
 
     <style>
@@ -88,6 +87,7 @@ require 'database/database.php';
 }
 </style>
 </head>
+
 
 <body>
     <!-- Spinner Start -->
@@ -156,72 +156,232 @@ require 'database/database.php';
     <!-- Navbar End -->
 
 
-    <!-- Header Start -->
-    <div class="container-fluid bg-primary py-5 mb-5 page-header">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">Contact</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
-                        </ol>
-                    </nav>
+    <!-- Upper description -->
+                <div class="root bg-dark " id="root">
+            <br>
+            <div class="container">
+            <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Back-End Web Development</li>
+            </ol>
+            </nav>
+            <br>
+            <div >
+                <h2 class="text-light" style="color:white">Back-End Full Crash Courses - Learn in 72 hours</h2>
+                <h4 class="text-light" style="color:white">Learn All you need to know about Back-End Development </h4>
+                <h5 class="text-warning">4.6 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span class="text-light">(200 ratings)</span></h5>
+                <p class="text-primary">Created by CODEMaster</p>
+                <p class="text-light"><i class="fa-solid fa-clock me-2"></i><small>Last Updated</small> <span><i class="fa-solid fa-globe ms-4 me-2"></i> <small>English</small></span></p>
+            </div>
+
+            <br>
+            </div>
+                </div>
+                <br>
+                <!-- What you will Learn -->
+                <div class="container">
+                <div class="container-xxl py-5">
+        <div class="container">
+          
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <!-- <img class="img-fluid" src="img/course-1.jpg" alt=""> -->
+                            <div class="bod">
+                                <div class="class text-center" style="border-bottom:2px solid black;width:fit-content;margin:auto">
+                                   <h3 > What You will Learn</h3>
+                                 
+                                    
+                                </div>
+
+                            </div>
+                            <!-- <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href="register.php" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                            </div> -->
+                            <div class="lot px-2">
+                            <p class="pt-3"><i class="fa-solid fa-check mx-2" ></i>You'll be able to understand the Introduction to PHP</p>
+                            <p class="pt-3"><i class="fa-solid fa-check mx-2" ></i>You'll be able to understand LARAVEL</p>
+                            <p class="pt-3"><i class="fa-solid fa-check mx-2" ></i>You'll be able to understand NODE JS</p>
+                            <p class="pt-3"><i class="fa-solid fa-check mx-2" ></i>You'll be able to understand SEQUELIZE</p>
+                            <p class="pt-3"><i class="fa-solid fa-check mx-2" ></i>You'll be able to understand MYSQL</p>
+                            <p class="pt-3"><i class="fa-solid fa-check mx-2" ></i>You'll be able to understand the Introduction to PYTHON</p>
+                            <p class="pt-3"><i class="fa-solid fa-check mx-2" ></i>You'll be able to understand DJANGO</p>
+
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+             
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="course-item bg-light mt-3">
+                        <img src="https://www.terasoltechnologies.com/hubfs/Django-vs-Laravel-vs-Nodejs--Best-Backend-Framework-To-Choose.jpg" alt="" class="img-fluid h-100 w-100">
+                        <img src="https://www.shuup.com/wp-content/uploads/2017/12/python-plus-django-1.jpg" alt="" class="img-fluid w-100 h-100">
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-12 col-md-12 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <!-- <img class="img-fluid" src="img/course-1.jpg" alt=""> -->
+                            <div class="bod">
+                                <div class="class text-center pt-3" style="border-bottom:2px solid black;width:fit-content;margin:auto">
+                                   <h3 > There three Categories in the Course</h3>
+                                 
+                                    
+                                </div>
+
+                            </div>
+                            <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4  justify-content-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <div style="text-align:center;border-bottom:1px solid grey;width:fit-content;margin:auto">
+                                <h3>
+                                    First Category
+                                </h3>
+                            </div>
+                            <div class="mt-4">
+                                <ul>
+                                    <li>PHP</li>
+                                    <li>LARAVEL</li>
+                                </ul>
+                            </div>
+                        
+                        </div>
+                        <div class="text-center p-4  pb-0">
+                            <h3 class="mb-0"><i class="fa-solid fa-naira-sign"></i> 70,000</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-warning"></small>
+                                <small class="fa fa-star text-warning"></small>
+                                <small class="fa fa-star text-warning"></small>
+                                <small class="fa fa-star text-warning"></small>
+                                <small class="fa fa-star text-warning"></small>
+                                <small>(123)</small>
+                            </div>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Awofesobi Peace</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>10 Hrs</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
+                        </div>
+                        <br>
+                      
+                      <div class="d-grid gap-2">
+                      <button class="btn btn-primary" type="button">Start Learning</button>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <div style="text-align:center;border-bottom:1px solid grey;width:fit-content;margin:auto">
+                                <h3>
+                                    Second Category
+                                </h3>
+                            </div>
+                            <div class="mt-4">
+                                <ul>
+                                    <li>PYTHON</li>
+                                    <li>DJANGO</li>
+                                </ul>
+                            </div>
+                        
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0"><i class="fa-solid fa-naira-sign"></i> 70,000</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-warning"></small>
+                                <small class="fa fa-star text-warning"></small>
+                                <small class="fa fa-star text-warning"></small>
+                                <small class="fa fa-star text-warning"></small>
+                                <small class="fa fa-star text-warning"></small>
+                                <small>(123)</small>
+                            </div>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Awofesobi Peace</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>15 Hrs</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
+                        </div>
+                        <br>
+                      
+                      <div class="d-grid gap-2">
+                      <button class="btn btn-primary" type="button">Start Learning</button>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <div style="text-align:center;border-bottom:1px solid grey;width:fit-content;margin:auto">
+                                <h3>
+                                    Third Category
+                                </h3>
+                            </div>
+                            <div class="mt-4">
+                                <ul>
+                                    <li>NODE JS</li>
+                                    <li>EXPRESS JS</li>
+                                
+                                </ul>
+                            </div>
+                        
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0"><i class="fa-solid fa-naira-sign"></i> 70,000</h3>
+                            <div class="mb-3">
+                                <small class="fa fa-star text-warning"></small>
+                                <small class="fa fa-star text-warning"></small>
+                                <small class="fa fa-star text-warning"></small>
+                                <small class="fa fa-star text-warning"></small>
+                                <small class="fa fa-star text-warning"></small>
+                                <small>(123)</small>
+                            </div>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Awofesobi Peace</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>25 Hrs</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
+                        </div>
+                      <br>
+
+                        <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="button">Start Learning</button>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Header End -->
-
-
-    <!-- Contact Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Contact Us</h6>
-                <h1 class="mb-5">Contact For Any Query</h1>
+                        </div>
+                       
+                    </div>
+                </div>
+             
+               
             </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h5>Get In Touch</h5>
-                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
-                            <i class="fa fa-map-marker-alt text-white"></i>
-                        </div>
-                        <div class="ms-3">
-                            <h5 class="text-primary">Office</h5>
-                            <p class="mb-0">Works Remotely</p>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
-                            <i class="fa fa-phone-alt text-white"></i>
-                        </div>
-                        <div class="ms-3">
-                            <h5 class="text-primary">Mobile</h5>
-                            <p class="mb-0">+234 811 640 5518</p>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary" style="width: 50px; height: 50px;">
-                            <i class="fa fa-envelope-open text-white"></i>
-                        </div>
-                        <div class="ms-3">
-                            <h5 class="text-primary">Email</h5>
-                            <p class="mb-0">awofesobipeace@gmail.com</p>
-                        </div>
-                    </div>
+        </div>
+    </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <iframe class="position-relative rounded w-100 h-100"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.2654096682136!2d4.598641674072431!3d7.761652207540071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103827489a44ee03%3A0xc8d59bcaa8bfd123!2sOsun%20State%20University!5e0!3m2!1sen!2sng!4v1693866413108!5m2!1sen!2sng"
-                        frameborder="0" style="min-height: 300px; border:0;" allowfullscreen="" aria-hidden="false"
-                        tabindex="0"></iframe>
+
+                <!-- Notice Notifications -->
+                <div class="wow fadeInUp text-center mb-3 " style="border-bottom:1px solid black;width:fit-content;margin:auto">
+                    <h5>
+                        Contact Us For More Information On this Course Before you register
+                    </h5>
+
                 </div>
-                <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="col-lg-6 col-md-12 m-auto wow fadeInUp" data-wow-delay="0.5s">
                 <?php
                 use PHPMailer\PHPMailer\PHPMailer;
                 use PHPMailer\PHPMailer\SMTP;
@@ -301,7 +461,9 @@ require 'database/database.php';
                     // Send email to user
                     if ($userMail->send()) {
                         $userMessage = 'Message sent successfully !';
-                        echo '<script>
+                        echo '
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
                                 Swal.fire({
                                     icon: "success",
                                     title: "Success",
@@ -311,7 +473,10 @@ require 'database/database.php';
                               $userStatus = 'success';
                     } else {
                         $userMessage = 'Message could not be sent ';
-                        echo '<script>
+                        echo '
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        
+                        <script>
                                 Swal.fire({
                                     icon: "error",
                                     title: "Error",
@@ -380,13 +545,9 @@ require 'database/database.php';
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- Contact End -->
+                <br>
 
-
-    <!-- Footer Start -->
+                 <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
@@ -436,12 +597,10 @@ require 'database/database.php';
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Newsletter</h4>
                     <p>Get Updates On Our Courses.</p>
-                   <form action=""method="post">
-                   <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="email" name="email"  placeholder="Your email">
-                        <button type="button" class="btn btn-danger py-2 position-absolute top-0 end-0 mt-2 me-2" type="submit">SignUp</button>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-danger py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                     </div>
-                   </form>
                 </div>
             </div>
         </div>
@@ -465,40 +624,20 @@ require 'database/database.php';
     </div>
     <!-- Footer End -->
 
+     <!-- Back to Top -->
+     <a href="#" class="btn btn-lg btn-danger btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-danger btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-    <script>
-        <?php if (isset($userStatus)) : ?>
-            <?php if ($userStatus === 'success') : ?>
-                Swal.fire({
-                    icon: "success",
-                    title: "Success",
-                    text: "<?= $userMessage ?>",
-                });
-            <?php else : ?>
-                Swal.fire({
-                    icon: "error",
-                    title: "Error",
-                    text: "<?= $userMessage ?>",
-                });
-            <?php endif; ?>
-        <?php endif; ?>
-    </script>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
 </body>
 
 </html>

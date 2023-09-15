@@ -192,9 +192,13 @@
                 <h4 class='root'>
                     CODEMaster_lms
                 </h4>
+                <h5>
+                You’re ready to embark on your Tech journey with CODEMaster, to move From Zero to Hero.
+                </h5>
                 <h6 class='rule'>
                     Thank You for Registering
                 </h6>
+                
             </section>
             </div>
             
