@@ -140,8 +140,10 @@ require 'database/database.php';
         <?php if(isset($_SESSION['email'])): ?>
         <a href="logout.php" class="nav-link text-danger"><i class="fa-solid fa-right-from-bracket mx-2"></i> Log
           Out</a>
+
         <?php else: ?>
-        <a href="register.php" class="nav-link">Join Now</a>
+        <a href="register.php" class="nav-link text-success">Join Now</a>
+
         <?php endif; ?>
         <!-- You can add more menu items here for the off-canvas menu -->
       </div>
@@ -170,6 +172,8 @@ require 'database/database.php';
         <?php if(isset($_SESSION['email'])): ?>
         <a href="logout.php" class="nav-link text-danger"><i class="fa-solid fa-right-from-bracket mx-2"></i> Log
           Out</a>
+        <a href="userdashboard.php"> <i class="fa-solid fa-user"></i></a>
+
         <?php else: ?>
         <a href="register.php" class="nav-link">Join Now</a>
         <?php endif; ?>

@@ -140,8 +140,10 @@ require 'database/database.php';
         <?php if(isset($_SESSION['email'])): ?>
         <a href="logout.php" class="nav-link text-danger"><i class="fa-solid fa-right-from-bracket mx-2"></i> Log
           Out</a>
+
         <?php else: ?>
-        <a href="register.php" class="nav-link">Join Now</a>
+        <a href="register.php" class="nav-link text-success">Join Now</a>
+
         <?php endif; ?>
         <!-- You can add more menu items here for the off-canvas menu -->
       </div>
@@ -170,6 +172,8 @@ require 'database/database.php';
         <?php if(isset($_SESSION['email'])): ?>
         <a href="logout.php" class="nav-link text-danger"><i class="fa-solid fa-right-from-bracket mx-2"></i> Log
           Out</a>
+        <a href="userdashboard.php"> <i class="fa-solid fa-user"></i></a>
+
         <?php else: ?>
         <a href="register.php" class="nav-link">Join Now</a>
         <?php endif; ?>
@@ -210,9 +214,9 @@ require 'database/database.php';
       <div class="row g-4">
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
           <h5>Get In Touch</h5>
-          <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax &
-            PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a
-              href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+          <p class="mb-4">
+            Please be patient after you contact us we will get in touch with you soon.
+          </p>
           <div class="d-flex align-items-center mb-3">
             <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary"
               style="width: 50px; height: 50px;">

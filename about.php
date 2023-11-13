@@ -27,7 +27,9 @@ require 'database/database.php';
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Libraries Stylesheet -->
   <link href="lib/animate/animate.min.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -138,6 +140,7 @@ require 'database/database.php';
         <?php if(isset($_SESSION['email'])): ?>
         <a href="logout.php" class="nav-link text-danger"><i class="fa-solid fa-right-from-bracket mx-2"></i> Log
           Out</a>
+
         <?php else: ?>
         <a href="register.php" class="nav-link text-success" style="color:green">Join Now</a>
         <?php endif; ?>
@@ -168,6 +171,8 @@ require 'database/database.php';
         <?php if(isset($_SESSION['email'])): ?>
         <a href="logout.php" class="nav-link text-danger"><i class="fa-solid fa-right-from-bracket mx-2"></i> Log
           Out</a>
+        <a href="userdashboard.php"> <i class="fa-solid fa-user"></i></a>
+
         <?php else: ?>
         <a href="register.php" class="nav-link">Join Now</a>
         <?php endif; ?>

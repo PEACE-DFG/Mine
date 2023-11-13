@@ -169,6 +169,7 @@ require 'database/database.php';
         <?php if(isset($_SESSION['email'])): ?>
         <a href="logout.php" class="nav-link text-danger"><i class="fa-solid fa-right-from-bracket mx-2"></i> Log
           Out</a>
+        <a href="userdashboard.php"> <i class="fa-solid fa-user"></i></a>
         <?php else: ?>
         <a href="register.php" class="nav-link">Join Now</a>
         <?php endif; ?>
@@ -266,14 +267,14 @@ require 'database/database.php';
             <div class="position-relative overflow-hidden">
               <img class="img-fluid" src="img/course-1.jpg" alt="">
               <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
+                <a href="readmore.php" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
                   style="border-radius: 30px 0 0 30px;">Read More</a>
-                <a href="register.html" class="flex-shrink-0 btn btn-sm btn-primary px-3"
+                <a href="register.php" class="flex-shrink-0 btn btn-sm btn-primary px-3"
                   style="border-radius: 0 30px 30px 0;">Join Now</a>
               </div>
             </div>
             <div class="text-center p-4 pb-0">
-              <h3 class="mb-0"><i class="fa-solid fa-naira-sign"></i> 70,000</h3>
+              <h3 class="mb-0"><i class="fa-solid fa-naira-sign"></i> ****</h3>
               <div class="mb-3">
                 <small class="fa fa-star text-primary"></small>
                 <small class="fa fa-star text-primary"></small>
@@ -289,7 +290,8 @@ require 'database/database.php';
                   class="fa fa-user-tie text-primary me-2"></i>Awofesobi Peace</small>
               <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>20
                 Hrs</small>
-              <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
+              <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30
+                Students</small>
             </div>
           </div>
         </div>
@@ -298,14 +300,14 @@ require 'database/database.php';
             <div class="position-relative overflow-hidden">
               <img class="img-fluid" src="img/course-2.jpg" alt="">
               <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
+                <a href="backend.php" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
                   style="border-radius: 30px 0 0 30px;">Read More</a>
-                <a href="register.html" class="flex-shrink-0 btn btn-sm btn-primary px-3"
+                <a href="register.php" class="flex-shrink-0 btn btn-sm btn-primary px-3"
                   style="border-radius: 0 30px 30px 0;">Join Now</a>
               </div>
             </div>
             <div class="text-center p-4 pb-0">
-              <h3 class="mb-0"><i class="fa-solid fa-naira-sign"></i> 80,000 </h3>
+              <h3 class="mb-0"><i class="fa-solid fa-naira-sign"></i>****</h3>
               <div class="mb-3">
                 <small class="fa fa-star text-primary"></small>
                 <small class="fa fa-star text-primary"></small>
@@ -321,7 +323,8 @@ require 'database/database.php';
                   class="fa fa-user-tie text-primary me-2"></i>Awofesobi Peace</small>
               <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>19
                 Hrs</small>
-              <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
+              <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30
+                Students</small>
             </div>
           </div>
         </div>
@@ -330,14 +333,14 @@ require 'database/database.php';
             <div class="position-relative overflow-hidden">
               <img class="img-fluid" src="img/course-3.jpg" alt="">
               <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
+                <a href="fullstack.php" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end"
                   style="border-radius: 30px 0 0 30px;">Read More</a>
-                <a href="register.html" class="flex-shrink-0 btn btn-sm btn-primary px-3"
+                <a href="register.php" class="flex-shrink-0 btn btn-sm btn-primary px-3"
                   style="border-radius: 0 30px 30px 0;">Join Now</a>
               </div>
             </div>
             <div class="text-center p-4 pb-0">
-              <h3 class="mb-0"><i class="fa-solid fa-naira-sign"></i> 150,000 </h3>
+              <h3 class="mb-0"><i class="fa-solid fa-naira-sign"></i> **** </h3>
               <div class="mb-3">
                 <small class="fa fa-star text-primary"></small>
                 <small class="fa fa-star text-primary"></small>
@@ -353,7 +356,8 @@ require 'database/database.php';
                   class="fa fa-user-tie text-primary me-2"></i>Awofesobi Peace</small>
               <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>30
                 Hrs</small>
-              <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small>
+              <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30
+                Students</small>
             </div>
           </div>
         </div>
