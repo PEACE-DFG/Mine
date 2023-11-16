@@ -43,7 +43,7 @@ $sql = "SELECT * FROM lms WHERE email='$email'";
                     confirmButtonText: "OK"
                 });  
             </script>';
-            header('location:index.php');
+            header('location:userdashboard.php');
         }
     }else{
     //     echo "<div class='alert alert-danger' role='alert'>
@@ -61,20 +61,22 @@ $sql = "SELECT * FROM lms WHERE email='$email'";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <title>eLEARNING_CODEMaster_Login</title>
-     <!-- Favicon -->
-     <link href="img/favicon.ico" rel="icon">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <title>eLEARNING_CODEMaster_Login</title>
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
+
 </head>
+
 <body>
-    
-    <div class="container">
+
+  <div class="container">
     <?php
 require "database/database.php";
 
@@ -140,37 +142,37 @@ if (isset($_POST['login'])) {
 ?>
 
 
-            
-            
-        
-            <?php if (!empty($errors)) : ?>
-                <div class="alert alert-danger" style='color:red;text-align:center;margin:auto;padding-left:50px' role="alert">
-                    <?php echo $errors; ?>
-                </div>
-            <?php endif; ?>
-            
-        
+
+
+
+    <?php if (!empty($errors)) : ?>
+    <div class="alert alert-danger" style='color:red;text-align:center;margin:auto;padding-left:50px' role="alert">
+      <?php echo $errors; ?>
+    </div>
+    <?php endif; ?>
+
+
     <div class="login-box">
-        <h2>Login </h2>
-       <form action="" method="post">
-       <div class="input-box">
-            <input type="email" name="email">
-            <label for="">Email</label>
+      <h2>Login </h2>
+      <form action="" method="post">
+        <div class="input-box">
+          <input type="email" name="email">
+          <label for="">Email</label>
         </div>
         <div class="input-box">
-            <input type="password" name="password">
-            <label for="">Password</label>
+          <input type="password" name="password">
+          <label for="">Password</label>
         </div>
-        <div class="forgot-pass"> 
-             <a href="">Forgot your Password?</a>
+        <div class="forgot-pass">
+          <a href="">Forgot your Password?</a>
         </div>
         <a href="">
-        <button type="submit" class="btn" name='login'>Login</button>
+          <button type="submit" class="btn" name='login'>Login</button>
         </a>
-       </form>
-        <div class="signup-link">
-            <a href="register.php">Signup</a>
-        </div>
+      </form>
+      <div class="signup-link">
+        <a href="register.php">Signup</a>
+      </div>
     </div>
     <span style="--i:0;"></span>
     <span style="--i:1;"></span>
@@ -223,7 +225,7 @@ if (isset($_POST['login'])) {
     <span style="--i:48;"></span>
     <span style="--i:49;"></span>
 
-</div>
+  </div>
   <!-- JavaScript Libraries -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -237,4 +239,5 @@ if (isset($_POST['login'])) {
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
 </body>
+
 </html>

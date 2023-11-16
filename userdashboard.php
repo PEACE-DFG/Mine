@@ -1,6 +1,9 @@
 <?php
 session_start();
 require 'database/database.php';
+require 'update.php';
+$user_id = 1; // Replace with the actual user's ID from the database
+$_SESSION['user_id'] = $user_id;
 ?>
 <html lang="en">
 
@@ -71,8 +74,39 @@ require 'database/database.php';
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 
+
   <!-- Template Stylesheet -->
   <style>
+  .box {
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 10px 0px;
+    font-weight: 700;
+    font-size: 25px;
+    background-color: black;
+    color: white;
+  }
+
+  .boxd {
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 5px 5px;
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    width: fit-content;
+    background-color: green;
+    margin: auto;
+
+  }
+
+  .boxd:hover {
+    cursor: pointer;
+    background-color: aqua;
+  }
+
   .dropdown {
     position: relative;
     display: inline-block;
@@ -141,7 +175,7 @@ require 'database/database.php';
   <!-- Spinner End -->
 
 
-  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-0" id="myNavbar" style="z-index: 100;">
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-0" id="myNavbar" style="z-index: -1;">
     <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
       <h2 class="m-0 text-danger"><i class="fa fa-book me-3"></i>CODEMaster_LMS</h2>
     </a>
@@ -207,69 +241,106 @@ require 'database/database.php';
       <a href="../../index3.html" class="brand-link">
       </a>
 
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <!-- Sidebar user (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-          </div>
-          <div class="info">
-            <a href="#" class="d-block">{Name}</a>
-          </div>
-        </div>
 
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-          <div class="input-group" data-widget="sidebar-search">
-            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-              <button class="btn btn-sidebar">
-                <i class="fas fa-search fa-fw"></i>
-              </button>
+
+
+
+      < <!-- Sidebar -->
+        <div class="sidebar">
+          <!-- Sidebar user (optional) -->
+          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            
+            <div class="image">
+              <?php
+    // Check if a profile picture is set in the user details
+    if (!empty($user_details['profile_picture'])) {
+        $profile_picture_src = $user_details['profile_picture'];
+        echo "<img src='$profile_picture_src' class='img-circle elevation-2' alt='User Image'>";
+    } else {
+        // Default image if no profile picture is set
+        echo "<img src='dist/img/default-profile-image.jpg' class='img-circle elevation-2' alt='User Image'>";
+    }
+    ?>
+            </div>
+            <div class="info">
+              <?php
+              // Check if the user is logged in
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+
+    // Fetch user details from the database
+    $result = mysqli_query($conn, "SELECT * FROM codemaster.lms WHERE id = $user_id");
+    if ($result) {
+        $user_details = mysqli_fetch_assoc($result);
+        echo "<a href='#' class='d-block'>{$user_details['email']}</a>";
+
+              
+            } else {
+              echo "Error fetching user details: " . mysqli_error($conn);
+          }
+      
+          // Close the database connection
+          mysqli_close($conn);
+      } else {
+          echo "<p class='text-light'>User not logged in.</p>";
+      }
+
+              ?>
             </div>
           </div>
-        </div>
 
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav " data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
+          <!-- SidebarSearch Form -->
+          <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+              <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-sidebar">
+                  <i class="fas fa-search fa-fw"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar Menu -->
+          <nav class="mt-2">
+            <ul class="nav " data-widget="treeview" role="menu" data-accordion="false">
+              <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-            <ul class="navbar-nav mx-auto p-4 p-lg-0 align-items-center">
-              <li class="nav-item  d-lg-block">
-                <a href="index.php" class="nav-link">Home</a>
-              </li>
-              <li class="nav-item  d-lg-block">
-                <a href="about.php" class="nav-link">About</a>
-              </li>
-              <li class="nav-item  d-lg-block">
-                <a href="courses.php" class="nav-link">Courses</a>
-              </li>
-              <li class="nav-item  d-lg-block">
-                <a href="team.php" class="nav-link">Our Team</a>
-              </li>
-              <li class="nav-item  d-lg-block">
-                <a href="testimonial.php" class="nav-link">Testimonial</a>
-              </li>
-              <li class="nav-item  d-lg-block">
-                <a href="contact.php" class="nav-link">Contact</a>
-              </li>
-              <?php if(isset($_SESSION['email'])): ?>
-              <a href="logout.php" class="nav-link text-danger"><i class="fa-solid fa-right-from-bracket mx-2"></i> Log
-                Out</a>
-              <a href="userdashboard.php"> <i class="fa-solid fa-user"></i></a>
-              <?php else: ?>
-              <a href="register.php" class="nav-link text-success">Join Now</a>
-              <?php endif; ?>
-              <!-- You can add more navigation items here for desktop view -->
+              <ul class="navbar-nav mx-auto p-4 p-lg-0 align-items-center">
+                <li class="nav-item  d-lg-block">
+                  <a href="index.php" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item  d-lg-block">
+                  <a href="about.php" class="nav-link">About</a>
+                </li>
+                <li class="nav-item  d-lg-block">
+                  <a href="courses.php" class="nav-link">Courses</a>
+                </li>
+                <li class="nav-item  d-lg-block">
+                  <a href="team.php" class="nav-link">Our Team</a>
+                </li>
+                <li class="nav-item  d-lg-block">
+                  <a href="testimonial.php" class="nav-link">Testimonial</a>
+                </li>
+                <li class="nav-item  d-lg-block">
+                  <a href="contact.php" class="nav-link">Contact</a>
+                </li>
+                <?php if(isset($_SESSION['email'])): ?>
+                <a href="logout.php" class="nav-link text-danger"><i class="fa-solid fa-right-from-bracket mx-2"></i>
+                  Log
+                  Out</a>
+                <a href="userdashboard.php"> <i class="fa-solid fa-user"></i></a>
+                <?php else: ?>
+                <a href="register.php" class="nav-link text-success">Join Now</a>
+                <?php endif; ?>
+                <!-- You can add more navigation items here for desktop view -->
+              </ul>
             </ul>
-          </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-      </div>
-      <!-- /.sidebar -->
+          </nav>
+          <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
@@ -279,7 +350,7 @@ require 'database/database.php';
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>User Dahsboard</h1>
+              <h1>Student Dashboard</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -293,17 +364,184 @@ require 'database/database.php';
       </section>
 
       <!-- Main content -->
+      <section>
+        <div class="container-fluid">
+          <!-- Info boxes -->
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="info-box">
+                <span class="info-box-icon bg-info elevation-1"><i class="fa-solid fa-clock"></i></span>
 
-      <!-- /.content -->
+                <div class="info-box-content">
+                  <span class="info-box-text">Time</span>
+                  <span class="info-box-number" id="date"></span>
+
+
+
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="info-box mb-3">
+                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-text">Favorite Courses</span>
+                  <span class="info-box-number">{}</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+
+            <!-- fix for small devices only -->
+
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="info-box mb-3">
+                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-text">Purchased Courses</span>
+                  <span class="info-box-number">{}</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="info-box mb-3">
+                <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-text">Date Joined</span>
+                  <span class="info-box-number">{}</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+
+        <div class="container-fluid">
+          <div class="header">
+            <div class="box">
+              Details
+            </div>
+          </div>
+        </div>
+        <div class="row container-fluid">
+          <div class="card card-primary mt-3">
+
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1"
+                    placeholder="Email from database in session" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Date Registered</label>
+                  <input type="text" class="form-control" id="exampleInputPassword1"
+                    placeholder="date registered from database" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1"
+                    placeholder="Password from database which will be updated in the update section" readonly>
+                </div>
+
+              </div>
+
+          </div>
+          <!-- /.card-body -->
+          </form>
+          <div class="container-fluid">
+            <button type="button" class="btn btn-default boxd " data-toggle="modal" data-target="#modal-default">
+              Update Details
+            </button>
+            <div class="modal fade" id="modal-default">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Update These Details</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="post" enctype="multipart/form-data" action="userdashboard.php">
+                      <div class="card-body">
+
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">New Password</label>
+                          <input type="password" class="form-control" name="new_password" id="exampleInputPassword1"
+                            placeholder="Enter New Password">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="exampleInputFile">Profile Picture</label>
+                          <div class="input-group">
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input" name="profile_picture" id="exampleInputFile">
+                              <label class="custom-file-label" for="exampleInputFile">Choose Image</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="card-footer">
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                      </div>
+                    </form>
+
+                  </div>
+
+                </div>
+                <!-- /.modal-content -->
+              </div>
+              <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+
+          </div>
+
+        </div>
+
+
+        <footer class="main-footer">
+          <div class="float-right d-none d-sm-block">
+
+          </div>
+          <strong>Copyright &copy; 2023 <a
+              href="https://peace-dfg.github.io/CODEMaster_Portfolio/">CODEMaster</a>.</strong>
+          All rights reserved.
+        </footer>
+
     </div>
-    <!-- /.content-wrapper -->
+    </section>
 
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
   </div>
 
 
@@ -312,6 +550,33 @@ require 'database/database.php';
 
 
 
+
+
+
+  <!--time-->
+  <script>
+  function updateClock() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+
+    // Add leading zeros if needed
+    hours = (hours < 10 ? "0" : "") + hours;
+    minutes = (minutes < 10 ? "0" : "") + minutes;
+    seconds = (seconds < 10 ? "0" : "") + seconds;
+
+    // Display the time in the specified format
+    var timeString = hours + ":" + minutes + ":" + seconds;
+    document.getElementById('date').innerHTML = timeString;
+  }
+
+  // Update the clock every second (1000 milliseconds)
+  setInterval(updateClock, 1000);
+
+  // Initial call to display the time immediately
+  updateClock();
+  </script>
   <!-- JavaScript Libraries -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
