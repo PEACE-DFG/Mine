@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    <link rel="stylesheet" href="css/register.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-     <!-- Favicon -->
-     <link href="img/favicon.ico" rel="icon">
-     <!-- swal fire -->
-    <link rel="stylesheet" href="sweetalert2.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  <link rel="stylesheet" href="css/register.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
+  <!-- swal fire -->
+  <link rel="stylesheet" href="sweetalert2.min.css">
 
 
-    <title>eLEARNING_CODEMaster_Register</title>
-    
+  <title>eLEARNING_CODEMaster_Register</title>
+
 </head>
+
 <body>
-    <?php
+  <?php
      use PHPMailer\PHPMailer\PHPMailer;
      use PHPMailer\PHPMailer\SMTP;
      use PHPMailer\PHPMailer\Exception;
@@ -136,7 +138,8 @@
 
     }
     img{
-        border-radius: 50%;
+        border-radius: 30px;
+        width:490px;
     }
     h2{
         padding: 10px 0px;
@@ -189,11 +192,12 @@
             <!-- <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOkMsYeen3GU66Lr8j8a_d8tyEfmqt8Dmpvg&usqp=CAU' width='70px' alt=''> -->
 
             <section style='margin: 30px 0px;'>
+            <img src='https://media.licdn.com/dms/image/D4E16AQHRhTZlXiJSuQ/profile-displaybackgroundimage-shrink_350_1400/0/1700170986961?e=1706745600&v=beta&t=VoaslInkrVx6z1NN0ob-qQa9nG-aOAOzzT2PamA5dJY' class='img-fluid w-25' alt='logo'>
                 <h4 class='root'>
                     CODEMaster_lms
                 </h4>
                 <h5>
-                You’re ready to embark on your Tech journey with CODEMaster, to move From Zero to Hero.
+                You are ready to embark on your Tech journey with CODEMaster, to move From Zero to Hero.
                 </h5>
                 <h6 class='rule'>
                     Thank You for Registering
@@ -273,43 +277,45 @@
     
 
     ?>
-    
-    <div class="container">
-        
+
+  <div class="container">
+
     <div class="login-box">
-        <h2>Register </h2>
-       <form action="" method="post">
-       <div class="input-box">
-            <input type="email" name="email" value="<?php echo array_key_exists('email', $data) ? $data['email'] : '' ?>">
-            <label for="">Email</label>
-            <small style="color:red">
-    <?php echo array_key_exists('emailErr', $errors) ? '<div class="alert alert-danger" role="alert">' . $errors['emailErr'] . '</div>' : ''; ?>
-</small>
+      <h2>Register </h2>
+      <form action="" method="post">
+        <div class="input-box">
+          <input type="email" name="email" value="<?php echo array_key_exists('email', $data) ? $data['email'] : '' ?>">
+          <label for="">Email</label>
+          <small style="color:red">
+            <?php echo array_key_exists('emailErr', $errors) ? '<div class="alert alert-danger" role="alert">' . $errors['emailErr'] . '</div>' : ''; ?>
+          </small>
         </div>
         <div class="input-box">
-            <input type="password" name="password" value="<?php echo array_key_exists('password', $data) ? $data['password'] : '' ?>">
-            <label for="">Password</label>
-            <small style="color:red">
-    <?php echo array_key_exists('passwordErr', $errors) ? '<div class="alert alert-danger" role="alert">' . $errors['passwordErr'] . '</div>' : ''; ?>
-</small> 
+          <input type="password" name="password"
+            value="<?php echo array_key_exists('password', $data) ? $data['password'] : '' ?>">
+          <label for="">Password</label>
+          <small style="color:red">
+            <?php echo array_key_exists('passwordErr', $errors) ? '<div class="alert alert-danger" role="alert">' . $errors['passwordErr'] . '</div>' : ''; ?>
+          </small>
         </div>
         <div class="input-box">
-            <input type="password" name="repeatpassword" value="<?php echo array_key_exists('repeatpassword', $data) ? $data['repeatpassword'] : '' ?>">
-            <label for="">Confirm Password</label>
-            <small style="color:red">
-    <?php echo array_key_exists('repeatpasswordErr', $errors) ? '<div class="alert alert-danger" role="alert">' . $errors['repeatpasswordErr'] . '</div>' : ''; ?>
-</small>
+          <input type="password" name="repeatpassword"
+            value="<?php echo array_key_exists('repeatpassword', $data) ? $data['repeatpassword'] : '' ?>">
+          <label for="">Confirm Password</label>
+          <small style="color:red">
+            <?php echo array_key_exists('repeatpasswordErr', $errors) ? '<div class="alert alert-danger" role="alert">' . $errors['repeatpasswordErr'] . '</div>' : ''; ?>
+          </small>
         </div>
-      
+
         <button type="submit" class="btn" name="register">Register</button>
-       
-       </form>
-        <div class="signup-link">
-            <div class="forgot-pass " > 
-                <a href="" style="color: white;">OR</a>
-           </div>
-            <a href="login.php">SignIn</a>
+
+      </form>
+      <div class="signup-link">
+        <div class="forgot-pass ">
+          <a href="" style="color: white;">OR</a>
         </div>
+        <a href="login.php">SignIn</a>
+      </div>
     </div>
     <span style="--i:0;"></span>
     <span style="--i:1;"></span>
@@ -362,7 +368,7 @@
     <span style="--i:48;"></span>
     <span style="--i:49;"></span>
 
-</div>
+  </div>
   <!-- JavaScript Libraries -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -374,7 +380,8 @@
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
   <!-- Include SweetAlert from cdnjs -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
+
 </html>

@@ -1,9 +1,8 @@
 <?php
-session_start();
 require 'database/database.php';
-require 'update.php';
-$user_id = 1; // Replace with the actual user's ID from the database
-$_SESSION['user_id'] = $user_id;
+// require 'update.php';
+session_start();
+
 ?>
 <html lang="en">
 
@@ -245,102 +244,103 @@ $_SESSION['user_id'] = $user_id;
 
 
 
-      < <!-- Sidebar -->
-        <div class="sidebar">
-          <!-- Sidebar user (optional) -->
-          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            
-            <div class="image">
-              <?php
-    // Check if a profile picture is set in the user details
-    if (!empty($user_details['profile_picture'])) {
-        $profile_picture_src = $user_details['profile_picture'];
-        echo "<img src='$profile_picture_src' class='img-circle elevation-2' alt='User Image'>";
-    } else {
-        // Default image if no profile picture is set
-        echo "<img src='dist/img/default-profile-image.jpg' class='img-circle elevation-2' alt='User Image'>";
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+
+          <div class="image">
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+              <div class="image">
+                <?php
+    $userIdQuery = "SELECT id FROM lms WHERE email = '$email'";
+    $userIdResult = $conn->query($userIdQuery);
+
+    if ($userIdResult->num_rows > 0) {
+        $userIdRow = $userIdResult->fetch_assoc();
+        $userId = $userIdRow['id'];
+
+        $userImageQuery = "SELECT ui.image_path FROM user_images ui WHERE ui.user_id = $userId";
+        $userImageResult = $conn->query($userImageQuery);
+
+        if ($userImageResult->num_rows > 0) {
+            $userImageRow = $userImageResult->fetch_assoc();
+            $userImagePath = $userImageRow['image_path'];
+
+            // Display the user's profile picture
+            echo "<img src='$userImagePath' alt='Profile Picture'>";
+        } else {
+            // Display a default image or a message indicating that the user doesn't have a profile picture
+            echo "<img src='path/to/default/image.jpg' alt='Default Profile Picture'>";
+        }
     }
     ?>
-            </div>
-            <div class="info">
-              <?php
-              // Check if the user is logged in
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
 
-    // Fetch user details from the database
-    $result = mysqli_query($conn, "SELECT * FROM codemaster.lms WHERE id = $user_id");
-    if ($result) {
-        $user_details = mysqli_fetch_assoc($result);
-        echo "<a href='#' class='d-block'>{$user_details['email']}</a>";
 
-              
-            } else {
-              echo "Error fetching user details: " . mysqli_error($conn);
-          }
-      
-          // Close the database connection
-          mysqli_close($conn);
-      } else {
-          echo "<p class='text-light'>User not logged in.</p>";
-      }
-
-              ?>
-            </div>
-          </div>
-
-          <!-- SidebarSearch Form -->
-          <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-              <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-sidebar">
-                  <i class="fas fa-search fa-fw"></i>
-                </button>
+                <!-- <img src="" class="img-circle elevation-2" alt="User Image"> -->
+              </div>
+              <div class="info">
+                <a href="#" class="d-block"></a>
               </div>
             </div>
           </div>
+          <div class="info">
+            <a href='#' class='d-block'></a>
+          </div>
+        </div>
 
-          <!-- Sidebar Menu -->
-          <nav class="mt-2">
-            <ul class="nav " data-widget="treeview" role="menu" data-accordion="false">
-              <!-- Add icons to the links using the .nav-icon class
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+          <div class="input-group" data-widget="sidebar-search">
+            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+              <button class="btn btn-sidebar">
+                <i class="fas fa-search fa-fw"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav " data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-              <ul class="navbar-nav mx-auto p-4 p-lg-0 align-items-center">
-                <li class="nav-item  d-lg-block">
-                  <a href="index.php" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item  d-lg-block">
-                  <a href="about.php" class="nav-link">About</a>
-                </li>
-                <li class="nav-item  d-lg-block">
-                  <a href="courses.php" class="nav-link">Courses</a>
-                </li>
-                <li class="nav-item  d-lg-block">
-                  <a href="team.php" class="nav-link">Our Team</a>
-                </li>
-                <li class="nav-item  d-lg-block">
-                  <a href="testimonial.php" class="nav-link">Testimonial</a>
-                </li>
-                <li class="nav-item  d-lg-block">
-                  <a href="contact.php" class="nav-link">Contact</a>
-                </li>
-                <?php if(isset($_SESSION['email'])): ?>
-                <a href="logout.php" class="nav-link text-danger"><i class="fa-solid fa-right-from-bracket mx-2"></i>
-                  Log
-                  Out</a>
-                <a href="userdashboard.php"> <i class="fa-solid fa-user"></i></a>
-                <?php else: ?>
-                <a href="register.php" class="nav-link text-success">Join Now</a>
-                <?php endif; ?>
-                <!-- You can add more navigation items here for desktop view -->
-              </ul>
+            <ul class="navbar-nav mx-auto p-4 p-lg-0 align-items-center">
+              <li class="nav-item  d-lg-block">
+                <a href="index.php" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item  d-lg-block">
+                <a href="about.php" class="nav-link">About</a>
+              </li>
+              <li class="nav-item  d-lg-block">
+                <a href="courses.php" class="nav-link">Courses</a>
+              </li>
+              <li class="nav-item  d-lg-block">
+                <a href="team.php" class="nav-link">Our Team</a>
+              </li>
+              <li class="nav-item  d-lg-block">
+                <a href="testimonial.php" class="nav-link">Testimonial</a>
+              </li>
+              <li class="nav-item  d-lg-block">
+                <a href="contact.php" class="nav-link">Contact</a>
+              </li>
+              <?php if(isset($_SESSION['email'])): ?>
+              <a href="logout.php" class="nav-link text-danger"><i class="fa-solid fa-right-from-bracket mx-2"></i>
+                Log
+                Out</a>
+              <a href="userdashboard.php"> <i class="fa-solid fa-user"></i></a>
+              <?php else: ?>
+              <a href="register.php" class="nav-link text-success">Join Now</a>
+              <?php endif; ?>
+              <!-- You can add more navigation items here for desktop view -->
             </ul>
-          </nav>
-          <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
@@ -418,8 +418,30 @@ if (isset($_SESSION['user_id'])) {
                 <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
 
                 <div class="info-box-content">
-                  <span class="info-box-text">Date Joined</span>
-                  <span class="info-box-number">{}</span>
+                  <!-- <span class="info-box-text">Date Joined</span> -->
+                  <?php
+                 // Check if the email is set in the session
+if (isset($_SESSION['email'])) {
+  $email = $_SESSION['email'];
+
+  // SQL query to select dateregistered for a specific email
+  $sql = "SELECT dateregistered FROM lms WHERE email = '$email'";
+  $result = $conn->query($sql);
+
+  // Check if the query was successful
+  if ($result->num_rows > 0) {
+      // Output Date Registered for each row
+      while ($row = $result->fetch_assoc()) {
+          echo "<span class='info-box-number'>Date Registered: " . $row["dateregistered"]. "<br></span>";
+      }
+  } else {
+      echo "No results for the specified email.";
+  }
+} else {
+  echo "Email not set in the session.";
+}
+
+                  ?>
                 </div>
                 <!-- /.info-box-content -->
               </div>
@@ -446,18 +468,81 @@ if (isset($_SESSION['user_id'])) {
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1"
-                    placeholder="Email from database in session" readonly>
+                  <?php
+                 // Check if the email is set in the session
+if (isset($_SESSION['email'])) {
+  $email = $_SESSION['email'];
+
+  // SQL query to select dateregistered for a specific email
+  $sql = "SELECT email FROM lms WHERE email = '$email'";
+  $result = $conn->query($sql);
+
+  // Check if the query was successful
+  if ($result->num_rows > 0) {
+      // Output Date Registered for each row
+      while ($row = $result->fetch_assoc()) {
+        echo "<input type='email' class='form-control' id='exampleInputEmail1' placeholder='" . $row["email"] . "' readonly>";
+      }
+  } else {
+      echo "No results for the specified email.";
+  }
+} else {
+  echo "Email not set in the session.";
+}
+?>
+
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Date Registered</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1"
-                    placeholder="date registered from database" readonly>
+                  <?php
+                 // Check if the email is set in the session
+if (isset($_SESSION['email'])) {
+  $email = $_SESSION['email'];
+
+  // SQL query to select dateregistered for a specific email
+  $sql = "SELECT dateregistered FROM lms WHERE email = '$email'";
+  $result = $conn->query($sql);
+
+  // Check if the query was successful
+  if ($result->num_rows > 0) {
+      // Output Date Registered for each row
+      while ($row = $result->fetch_assoc()) {
+        echo "<input type='password' class='form-control' id='exampleInputEmail1' placeholder='" . $row["dateregistered"] . "' readonly>";
+      }
+  } else {
+      echo "No results for the specified Dateregistered.";
+  }
+} else {
+  echo "Email not set in the session.";
+}
+?>
+
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1"
-                    placeholder="Password from database which will be updated in the update section" readonly>
+                  <?php
+                 // Check if the email is set in the session
+if (isset($_SESSION['email'])) {
+  $email = $_SESSION['email'];
+
+  // SQL query to select dateregistered for a specific email
+  $sql = "SELECT password FROM lms WHERE email = '$email'";
+  $result = $conn->query($sql);
+
+  // Check if the query was successful
+  if ($result->num_rows > 0) {
+      // Output Date Registered for each row
+      while ($row = $result->fetch_assoc()) {
+        echo "<input type='password' class='form-control' id='exampleInputEmail1' placeholder='" . $row["password"] . "' readonly>";
+      }
+  } else {
+      echo "No results for the specified Password.";
+  }
+} else {
+  echo "Password not set in the session.";
+}
+?>
+
                 </div>
 
               </div>
@@ -479,31 +564,37 @@ if (isset($_SESSION['user_id'])) {
                     </button>
                   </div>
                   <div class="modal-body">
+                    <?php
+                    require 'update.php';
+                echo '
                     <form method="post" enctype="multipart/form-data" action="userdashboard.php">
-                      <div class="card-body">
+                    <div class="card-body">
 
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">New Password</label>
-                          <input type="password" class="form-control" name="new_password" id="exampleInputPassword1"
-                            placeholder="Enter New Password">
-                        </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">New Password</label>
+                        <input type="password" class="form-control" name="new_password" id="exampleInputPassword1"
+                          placeholder="Enter New Password">
+                      </div>
 
-                        <div class="form-group">
-                          <label for="exampleInputFile">Profile Picture</label>
-                          <div class="input-group">
-                            <div class="custom-file">
-                              <input type="file" class="custom-file-input" name="profile_picture" id="exampleInputFile">
-                              <label class="custom-file-label" for="exampleInputFile">Choose Image</label>
-                            </div>
+                      <div class="form-group">
+                        <label for="exampleInputFile">Profile Picture</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="profile_picture" id="exampleInputFile">
+                            <label class="custom-file-label" for="exampleInputFile">Choose Image</label>
                           </div>
                         </div>
-
-                        <div class="card-footer">
-                          <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-
                       </div>
+
+                      <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+
+                    </div>
                     </form>
+                    '
+
+                    ?>
 
                   </div>
 
