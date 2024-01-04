@@ -93,16 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $userImageQuery = "SELECT ui.image_path FROM user_images ui WHERE ui.user_id = $userId";
                         $userImageResult = $conn->query($userImageQuery);
 
-                        if ($userImageResult->num_rows > 0) {
-                            $userImageRow = $userImageResult->fetch_assoc();
-                            $userImagePath = $userImageRow['image_path'];
-
-                            // Display the user's image path (you can store it in a variable for later use)
-                            echo "User's Image Path: $userImagePath";
-                        } else {
-                            // Display a message indicating that the user doesn't have an existing image
-                            echo "User doesn't have an existing image.";
-                        }
+              
                     } else {
                         echo "Error inserting image information: " . $conn->error;
                     }

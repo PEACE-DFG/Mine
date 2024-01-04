@@ -198,9 +198,9 @@ session_start();
       <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
         <li class="nav-item">
-          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <!-- <a class="nav-link" data-widget="navbar-search" href="#" role="button">
             <i class="fas fa-search"></i>
-          </a>
+          </a> -->
           <div class="navbar-search-block">
             <form class="form-inline">
               <div class="input-group input-group-sm">
@@ -250,53 +250,23 @@ session_start();
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
 
           <div class="image">
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-              <div class="image">
-                <?php
-    $userIdQuery = "SELECT id FROM lms WHERE email = '$email'";
-    $userIdResult = $conn->query($userIdQuery);
-
-    if ($userIdResult->num_rows > 0) {
-        $userIdRow = $userIdResult->fetch_assoc();
-        $userId = $userIdRow['id'];
-
-        $userImageQuery = "SELECT ui.image_path FROM user_images ui WHERE ui.user_id = $userId";
-        $userImageResult = $conn->query($userImageQuery);
-
-        if ($userImageResult->num_rows > 0) {
-            $userImageRow = $userImageResult->fetch_assoc();
-            $userImagePath = $userImageRow['image_path'];
-
-            // Display the user's profile picture
-            echo "<img src='$userImagePath' alt='Profile Picture'>";
-        } else {
-            // Display a default image or a message indicating that the user doesn't have a profile picture
-            echo "<img src='path/to/default/image.jpg' alt='Default Profile Picture'>";
-        }
-    }
-    ?>
-
-
-                <!-- <img src="" class="img-circle elevation-2" alt="User Image"> -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex ">
+              <div class="image text-center">
+                <img src="https://cdn0.iconfinder.com/data/icons/student-2/100/student-1-512.png"
+                  class="img-circle elevation-2" alt="User Image">
+                <span style="letter-spacing: 5px;font-size:20px;font-weight:900;color:aliceblue"
+                  class="ms-3">Student</span>
               </div>
-              <div class="info">
-                <a href="#" class="d-block"></a>
-              </div>
+
             </div>
-          </div>
-          <div class="info">
-            <a href='#' class='d-block'></a>
           </div>
         </div>
 
         <!-- SidebarSearch Form -->
         <div class="form-inline">
           <div class="input-group" data-widget="sidebar-search">
-            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
             <div class="input-group-append">
-              <button class="btn btn-sidebar">
-                <i class="fas fa-search fa-fw"></i>
-              </button>
+
             </div>
           </div>
         </div>
@@ -389,8 +359,8 @@ session_start();
                 <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
                 <div class="info-box-content">
-                  <span class="info-box-text">Favorite Courses</span>
-                  <span class="info-box-number">{}</span>
+                  <span class="info-box-text">Lovely Courses</span>
+                  <span class="info-box-number"></span>
                 </div>
                 <!-- /.info-box-content -->
               </div>
@@ -402,11 +372,11 @@ session_start();
 
             <div class="col-12 col-sm-6 col-md-3">
               <div class="info-box mb-3">
-                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-chevron-up"></i></span>
 
                 <div class="info-box-content">
-                  <span class="info-box-text">Purchased Courses</span>
-                  <span class="info-box-number">{}</span>
+                  <span class="info-box-text">Learning is Power</span>
+                  <span class="info-box-number"></span>
                 </div>
                 <!-- /.info-box-content -->
               </div>

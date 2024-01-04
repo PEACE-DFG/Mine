@@ -597,6 +597,13 @@ require 'database/database.php';
       </div>
     </form>
   </div>
+  <section>
+    <div class="container mt-5">
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-success" type="button">Click Here To Register</button>
+      </div>
+    </div>
+  </section>
   <br>
 
   <!-- Footer Start -->
